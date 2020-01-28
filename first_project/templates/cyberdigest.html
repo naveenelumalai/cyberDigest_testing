@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title> Cyber Digest List </title>
+  <link rel="stylesheet" href="{% static "css/mystyle.css" %}" />
+</head>
+
+<body>
+  <h1>Cyber Digest List</h1>
+
+  <div class="djangotwo">
+    {% if access_records %}
+    <table>
+      {% for acc in access_records %}
+      <tr>
+        <td>{{ acc.Title }}</td>
+        <td>{{ acc.Link }}</td>
+        <td>{{ acc.Published }}</td>
+        <td>{{ acc.Description }}</td>
+      </tr>
+      {% endfor %}
+      </table>
+      {% else %}
+        <p>No Data found</p>
+      {% endif %}
+  </div>
+
+
+</body>
+
+</html>

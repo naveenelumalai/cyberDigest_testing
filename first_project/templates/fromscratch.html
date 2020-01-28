@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Cyber Digest</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/mystyle.css'%}" />
+</head>
+
+<body>
+  <!-- As a heading -->
+  <nav class="navbar fixed-top navbar-light" style="background-color: #5f6caf;">
+    <span class="navbar-brand mb-0 h1" style="color: white">Cyber Digest</span>
+  </nav>
+
+  {% if access_records %}
+  <div class="list-group" id = "list" style="margin-top:64px; margin-left:10px; margin-right:10px">
+    {% for acc in access_records %}
+      <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ acc.Title }}</h5>
+          <small class="text-muted">{{ acc.Published }}</small>
+
+        </div>
+        <small class="text-muted">{{ acc.Link }}</small>
+      </a>
+
+    {% endfor %}
+  </div>
+  {% else %}
+  <p>No Data found</p>
+  {% endif %}
+
+<script src="{% static 'js/testing.js' %}" charset="utf-8"></script>
+
+</body>
+
+</html>
